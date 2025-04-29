@@ -10,4 +10,8 @@ class Pago extends Model
 {
     use HasFactory;
     protected $table = 'pago';
+
+    public function ticket(){
+        return $this->belongsTo(Ticket::class, 'id_ticket', 'id_ticket');
+    }
 }

@@ -12,11 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('admin', function (Blueprint $table) {
-            $table->string("user")->primary();
-            $table->string("password");
+            $table->string("user")->primary()->unique();
+            $table->integer('id_sorteo');
+            $table->string("password")->unique();
             $table->timestamps();
-        
+
+            $table->foreign('id_sorteo')
+                ->references('id_sorteo')
+                ->on('sorteo')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
         });
+
     }
 
     /**

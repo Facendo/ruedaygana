@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ticket', function (Blueprint $table) {
-            $table->id()->autoIncrement()->unique()->primary();
+            $table->integer("id_ticket")->autoIncrement()->unique()->primary();
+            $table->integer('id_sorteo');
             $table->string('ticket_token')->unique();
             $table->string('nombre_cliente');
             $table->string('telefono_cliente');
@@ -20,6 +21,13 @@ return new class extends Migration
             $table->string('ticket_descripcion')->default('pendiente');
             $table->string('confirmacion_de_pago')->default('pendiente');
             $table->timestamps();
+
+            $table->foreign('id_sorteo')
+                ->references('id_sorteo')
+                ->on('sorteo')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
         });
     }
 

@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sorteo', function (Blueprint $table) {
-            $table->id()->autoIncrement()->unique()->primary();
+            $table->integer('id_sorteo')->autoIncrement()->unique()->primary();
             $table->string('sorteo_nombre');
             $table->date('sorteo_fecha_inicio');
             $table->date('sorteo_fecha_fin');
             $table->timestamps();
+
         });
     }
 

@@ -12,4 +12,8 @@ class Admin extends Model
     protected $primaryKey = 'user';
     public $incrementing = false;
     protected $keyType = 'string';
+
+    public function sorteo(){
+        return $this->belongsTo(Sorteo::class, 'id_sorteo' , 'id_sorteo');
+    }
 }

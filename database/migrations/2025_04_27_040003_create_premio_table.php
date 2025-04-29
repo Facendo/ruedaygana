@@ -12,10 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('premio', function (Blueprint $table) {
-            $table->string('premio_nombre')->primary();
+            $table->integer('id_premio')->autoIncrement()->unique()->primary();
+            $table->integer('id_sorteo');
+            $table->string('premio_nombre');
             $table->string('premio_descripcion');
             $table->string('premio_imagen')->nullable();
             $table->timestamps();
+        
+            $table->foreign('id_sorteo')
+                ->references('id_sorteo')
+                ->on('sorteo')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
