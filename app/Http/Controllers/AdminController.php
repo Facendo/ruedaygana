@@ -12,7 +12,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        //Vista para listar los administradores
+        $admins = Admin::all();
+        return view('admin.index', compact('admins'));
     }
 
     /**
@@ -20,7 +22,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        //Vista para crear un nuevo administrador
+        return view('admin.create');
     }
 
     /**
@@ -28,7 +31,14 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $admin= new Admin();
+        $admin->user=$request->user;
+        $admin->password=$request->password;
+        $admin->id_sorteo=$request->id_sorteo;
+        $admin->created_at=now();
+        $admin->updated_at=now();
+        $admin->save();
+        return redirect()->route('admin.index')->with('success', 'Administrador creado exitosamente');
     }
 
     /**

@@ -7,44 +7,44 @@ use Illuminate\Http\Request;
 
 class SorteoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index()
     {
-        //
+        //retorna la vista principal de sorteo
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    
     public function create()
     {
-        //
+        //retorna la vista para crear un nuevo sorteo
+        
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(Request $request)
     {
-        //
+        //Funcion para almacenar un nuevo sorteo
+        request()->validate([
+            'nombre' => 'required|string|max:255',
+            'fecha' => 'required|date',
+            'hora' => 'required|date_format:H:i',
+            'estado' => 'required|boolean',
+        ]);
+        $sorteo = new Sorteo();
+        $sorteo->sorteo_nombre = $request->sorteo_nombre;
+        $sorteo->sorteo_fecha_inicio = $request->sorteo_fecha_inicio;
+        $sorteo->sorteo_fecha_fin= $request->sorteo_fecha_fin;
+        $sorteo->created_at = $request->now();
+        $sorteo->updated_at = $request->now();
+        $sorteo->save();
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Sorteo $sorteo)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+   
     public function edit(Sorteo $sorteo)
     {
-        //
+        //retorna la vista para editar un sorteo
+        return view('sorteo.edit', compact('sorteo'));
     }
 
     /**
@@ -52,7 +52,13 @@ class SorteoController extends Controller
      */
     public function update(Request $request, Sorteo $sorteo)
     {
-        //
+        //Funcion para actualizar un sorteo
+        $sorteo->sorteo_nombre = $request->sorteo_nombre;
+        $sorteo->sorteo_fecha_inicio = $request->sorteo_fecha_inicio;
+        $sorteo->sorteo_fecha_fin= $request->sorteo_fecha_fin;
+        
+        $sorteo->updated_at = $request->now();
+        $sorteo->save();
     }
 
     /**
@@ -60,6 +66,6 @@ class SorteoController extends Controller
      */
     public function destroy(Sorteo $sorteo)
     {
-        //
+        //funcikon para eliminar un sorteo
     }
 }
