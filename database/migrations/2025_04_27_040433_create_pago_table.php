@@ -13,17 +13,18 @@ return new class extends Migration
     {
         Schema::create('pago', function (Blueprint $table) {
             $table->integer('id_pago')->autoIncrement()->primary();
-            $table->integer('id_ticket');
+            $table->string('cedula_cliente');
             $table->string('referencia')->unique();
             $table->double('monto');
+            $table->string('descripcion');
             $table->date('fecha_pago');
             $table->string('metodo_de_pago');
             $table->string('estado_pago')->default('pendiente');
             $table->string("dir_imagen_comprobante")->nullable();
         
-            $table->foreign('id_ticket')
-                ->references('id_ticket')
-                ->on('ticket')
+           $table->foreign('cedula_cliente')
+                ->references('cedula')
+                ->on('cliente')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
