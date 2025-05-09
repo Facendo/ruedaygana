@@ -13,18 +13,15 @@ return new class extends Migration
     {
         Schema::create('ticket', function (Blueprint $table) {
             $table->integer("id_ticket")->autoIncrement()->unique()->primary();
-            $table->integer('id_sorteo');
+            $table->string('cedula_cliente');
             $table->string('ticket_token')->unique();
-            $table->string('nombre_cliente');
-            $table->string('telefono_cliente');
-            $table->string('correo_cliente');
             $table->string('ticket_descripcion')->default('pendiente');
             $table->string('confirmacion_de_pago')->default('pendiente');
             $table->timestamps();
 
-            $table->foreign('id_sorteo')
-                ->references('id_sorteo')
-                ->on('sorteo')
+            $table->foreign('cedula_cliente')
+                ->references('cedula')
+                ->on('cliente')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 

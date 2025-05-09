@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="..\..\resources\css\styles.css">
-    <title>Document</title>
+    <title>Rueda y Gana|| Inicio</title>
 </head>
 
 <body>
@@ -144,6 +144,12 @@
 
     </section>
 
+    <div>
+        <label for="Compra">
+            
+            <a href="{{route('compra')}}">Compras tus tickets aqui</a>
+        </label>
+    </div>
     
     
 <footer id="foot">
