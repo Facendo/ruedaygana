@@ -9,6 +9,7 @@ class Sorteo extends Model
 {
     Use HasFactory;
     protected $table = 'sorteo';
+    protected $primaryKey = 'id_sorteo';
 
     public function admin(){
         return $this->hasMany(Admin::class, 'user', 'user');
