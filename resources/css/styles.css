@@ -200,7 +200,6 @@ footer#foot{
 
 .container_compra{
     width: 100%;
-    border: 2px solid red;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -231,6 +230,24 @@ input{
     border-radius: 5px;
     padding: 10px;
     margin: 30px;
+}
+
+.container_verify{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cuadro_verificacion{
+    width: 30%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.form_verify{
+    width: 80%;
+    height: 100%;
 }
 
 

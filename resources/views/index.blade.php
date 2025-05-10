@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="..\..\resources\css\styles.css">
+    <link rel="stylesheet" href={{asset('css/styles.css')}}>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Lilita+One&family=Luckiest+Guy&family=Russo+One&display=swap" rel="stylesheet">
@@ -24,7 +25,7 @@
             <div class="container_info container">
                 
                 <div class="container_logo">
-                    <img src="../../public/img/logo_ruedaygana_sf.png" class="img_logo" alt="imagenlogo">
+                    <img src="{{asset('img/logo_ruedaygana_sf.png')}}" class="img_logo" alt="imagenlogo">
                 </div>
                 
                 <div class="containertext_presentacion">
@@ -44,7 +45,7 @@
 
                 <div class="card">
                     <figure>
-                        <img src="../../public/img/moto.webp" alt="img_premio" class="img_card">
+                        <img src="{{asset('img/moto.webp)}}" alt="img_premio" class="img_card">
                     </figure>
                     <div class="contenido">
                         <h3 class="title_card">Premio</h3>
@@ -148,12 +149,6 @@
 
     </section>
 
-    <div>
-        <label for="Compra">
-            
-            <a href="{{route('compra')}}">Compras tus tickets aqui</a>
-        </label>
-    </div>
     
     
 <footer id="foot">
