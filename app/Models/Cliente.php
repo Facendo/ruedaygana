@@ -12,4 +12,5 @@ class Cliente extends Model
     protected $primaryKey = 'cedula';
     public $incrementing = false;
     public $keytype= 'string';
+    public $timestamps = false; 
 }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('referencia')->unique();
             $table->double('monto');
             $table->integer('cantidad_de_tickets');
-            $table->string('descripcion');
+            $table->string('descripcion')->nullable();
             $table->date('fecha_pago');
             $table->string('metodo_de_pago');
             $table->string('estado_pago')->default('pendiente');
